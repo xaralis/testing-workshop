@@ -1,6 +1,6 @@
 # ⚛️ Testování aplikací v Reactu
 
-Vítáme tě na workshopu testování aplikací v Reactu.
+Vítáme tě v sérii workshopu na téma testování aplikací v Reactu.
 
 ## Obsah
 
@@ -13,36 +13,34 @@ Vítáme tě na workshopu testování aplikací v Reactu.
 * [⚛️ Testování aplikací v Reactu](#️-testování-aplikací-v-reactu)
   * [Obsah](#obsah)
   * [Začátek](#začátek)
-  * [Systémové požadavky](#systémové-požadavky)
-  * [Nastavení projektu](#nastavení-projektu)
-  * [Spuštění aplikace](#spuštění-aplikace)
-  * [Základní struktura aplikace](#základní-struktura-aplikace)
-  * [Témata workshopu](#témata-workshopu)
+    * [Systémové požadavky](#systémové-požadavky)
+    * [Nastavení projektu](#nastavení-projektu)
+    * [Spuštění aplikace](#spuštění-aplikace)
+    * [Základní struktura aplikace](#základní-struktura-aplikace)
+  * [Workshop #1: Úvod do testování](#workshop-1-Úvod-do-testování)
     * [Co je to test?](#co-je-to-test)
+    * [Code Coverage](#code-coverage)
     * [Intro do frameworku Jest](#intro-do-frameworku-jest)
-    * [Testing a React Component](#testing-a-react-component)
-    * [Configuring Jest](#configuring-jest)
-    * [Unit testing components](#unit-testing-components)
-    * [Effective Snapshot Testing](#effective-snapshot-testing)
-    * [Integration testing pages](#integration-testing-pages)
-    * [Configuring Cypress](#configuring-cypress)
-    * [End-to-end testing](#end-to-end-testing)
-    * [Write tests. Not too many. Mostly integration.](#write-tests-not-too-many-mostly-integration)
-  * [Shared Content](#shared-content)
-    * [What's a test](#whats-a-test)
-    * [What types of testing are there?](#what-types-of-testing-are-there)
-    * [Jest](#jest)
-      * [Code Coverage](#code-coverage)
-    * [Write tests. Not too many. Mostly integration.](#write-tests-not-too-many-mostly-integration-1)
+  * [Workshop #2: Unit a integrační testy](#workshop-2-unit-a-integrační-testy)
+    * [Základní testování React komponent](#základní-testování-react-komponent)
+    * [Konfigurace Jestu](#konfigurace-jestu)
+    * [Unit testy komponent](#unit-testy-komponent)
+    * [Efektivní snapshot testing](#efektivní-snapshot-testing)
+    * [Integrační testování celých stránek](#integrační-testování-celých-stránek)
+  * [Workshop #3: End-To-End testování pomocí Cypress](#workshop-3-end-to-end-testování-pomocí-cypress)
+    * [Konfigurace Cypressu](#konfigurace-cypressu)
+    * [E2E testování](#e2e-testování)
   * [Odstraňování problémů](#odstraňování-problémů)
 
 <!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ## Začátek
 
-Nejprve si zkontrolujte, že máte nainstalovány potřebné systémové závislosti.
+Nejprve si zkontrolujte, že máte nainstalovány potřebné systémové závislosti a
+nainstalujte si celý projekt. Pokud je to možné, celý setup proveďte ještě **před
+vlastním workshopem** abychom pak ušetřili čas!
 
-## Systémové požadavky
+### Systémové požadavky
 
 * [git][git] v2.14.1 nebo vyšší
 * [NodeJS][node] v8.9.4 nebo vyšší
@@ -60,7 +58,7 @@ npm --version
 Pokud něco nefunguje jak by mělo, další informace jak nastavit `PATH` env variable
 a jak to opravit najdete tady pro [windows][win-path] nebo pro [mac/linux][mac-path]:
 
-## Nastavení projektu
+### Nastavení projektu
 
 Poté, co sis ověřil/a, že je vše správně nainstalováno, mělo by být možné
 spustit následující příkazy, pomocí kterých si spustíte celý projekt:
@@ -75,7 +73,7 @@ Poslední příkaz může chvíli trvat. Pokud dojde k nějaké chybě, zkuste z
 čem je problém a jestli ho nezvládneš vyřešit svépomocí. Pomoci může i sekce
 [Odstraňování problémů](#odstranovani-problemu). Když si nebudeš vědět rady, zeptej se.
 
-## Spuštění aplikace
+### Spuštění aplikace
 
 Aplikaci, která nám poslouží jako základ pro výuku testování, spustíte následovně:
 
@@ -97,7 +95,7 @@ zda to nevyřešíš svépomocí a radši ještě projdi sekci
 [Odstraňování problémů](#odstranovani-problemu). Když si nebudeš vědět rady,
 zeptej se.
 
-## Základní struktura aplikace
+### Základní struktura aplikace
 
 Tato aplikace má 3 základní části, ze kterých je sestavená:
 
@@ -113,16 +111,11 @@ získáš seznam všech dostupných skriptů. Hlavní z nich jsou následující
 2.  `npm run test` - spustí unit a integrační testy v Jest watch módu
 3.  `npm run test:e2e` - spustí e2e testy pomocí Cypressu v dev módu
 
-## Témata workshopu
+## Workshop #1: Úvod do testování
 
 * Základní informace o tom co je jsou to testy a k čemu jsou
-* Konfigurace Jestu pro client-side projekt v Reactu
 * Co je to code coverage a jak s ní zacházet
-* Psaní unit testů pro Javascriptové utility a React komponenty
-* Co je to snapshot testování a jak jej používat efektivně
-* Psaní integračních testů pro React komponenty
-* Konfigurace Cypressu pro webovou aplikaci
-* Psaní E2E (end-to-end) testů v Cypressu
+* Základní testování v Jest frameworku
 
 ### Co je to test?
 
@@ -144,6 +137,32 @@ Pokud vás zajímá více, můžete si přečíst třeba tento článek:
 * Testovací framework toto abstrahují, abychom mohli psát testy rychleji a lépe.
 * Testy slouží k tomu, abychom získali důvěru, že náš kód dělá to co by měl.
 
+### Code Coverage
+
+Podívejte se na `other/coverage-example`. Otevtřete si soubor `example.js` a
+porovnejte ho s `example.coverage.js`. Varianta s coverage obsahuje proměnnou, která
+hlídá všechna místa v kódu, kam se lze dostat. Otevřete
+`coverage/lcov-report/index.html` v browseru abyste viděli jaký report se
+pomocí této statistiky dá vytvořit.
+
+**Co jsme se dozvěděli**:
+
+* Branch: větev kódu. Příklady: `if`, `else`, `ternary`, `switch`.
+* Statement: syntaktický výraz, který může být spuštěn. Příklad: volání funkce, přiřazení proměnné.
+* Řádky: [Nejsou moc podstatné, všímejte si spíš statementů](https://github.com/gotwarlost/istanbul/issues/639)
+* Funkce: Zda byla funkce zavolána
+
+**Co si odnést**:
+
+* Coverage je užitečná metrika, která ukazuje, které části kódu se během testů
+  nespustily.
+* Jedná se pouze o indikátor a neměli bychom jej zaměňovat za předpoklad, že vše
+  co je pokryto také správně funguje.
+* Snaha udržet 100% pokrytí je mnohdy zbytečná a často kontraproduktivní.
+  Rozumná míra je 70% pro běžné aplikace. Pokud však vyvíjíte knihovnu, kterou
+  budou používat další lidé, je na místě snažit se o co nejvyšší pokrytí, klidně
+  i 100%.
+
 ### Intro do frameworku Jest
 
 Jest je framework pro spouštění testů, který obsahuje řadu užitečných nástrojů
@@ -157,330 +176,235 @@ v podobě hotových assertions nebo třeba nástrojů pro mockování.
 
 * Jest obsahuje řadu již připravených assertions, celý seznam je zde: https://facebook.github.io/jest/docs/en/expect.html
 
-### Testing a React Component
+## Workshop #2: Unit a integrační testy
 
-**Instruction**:
+* Konfigurace Jestu pro client-side projekt v Reactu
+* Psaní unit testů pro Javascriptové utility a React komponenty
+* Co je to snapshot testování a jak jej používat efektivně
+* Psaní integračních testů pro React komponenty
 
-* Nothing much here, direct people to the exercise and inform them they can
-  use the solution for reference
+### Základní testování React komponent
 
-**Exercise**:
+**Cvičení**:
 
-* Start the simple react tests in watch mode with `npm run test:react`
-* Open `other/simple-react/item-list.js` and `other/simple-react/__tests__/item-list.todo.js`
-* Follow the instructions to test the component
+* Spusťe si testy v Jest watch módu pomocí `npm run test:react`
+* Otevřete `other/simple-react/item-list.js` a `other/simple-react/__tests__/item-list.todo.js`
+* V `item-list.todo.js` postupujte dle instrukcí, můžete využít `item-list.js` pokud si nevíte rady
 
-**Takeaways**
+**Co si odnést**
 
-* The key here is to render the component and assert on the output.
-* Assuming this were the only component for your entire application, attempt to
-  use it the way the user would and let that inform your decisions of how you
-  test it.
+* Základní princip je vyrenderovat komponentu a přidat asserty na to jak byla vyrenderována.
+* Pokud by byla ve vaší celé aplikaci jen tato komponenta, zkuste ji využívat
+  stejně jako by to dělal uživatel. To vám dá základní případy toho, co je
+  vhodné otestovat.
 
-### Configuring Jest
+### Konfigurace Jestu
 
-**New Things**:
+**Nové věci**:
 
-* Code Coverage: A mechanism for us to understand how much of our code is run
-  during the unit tests. 100% for libs, 70%ish for applications.
+* Code Coverage: Statistika, kterou používáme abychom věděli, jak velká část
+  našeho kódu byla nějak využita během průchodu unit testy. 70% je vhodné číslo
+  pro aplikace, v případě knihoven je dobré cílit na 100%.
 
-**Instruction**:
+**Instrukce**:
 
-* Navigate to `./other/configuration/calculator`
-* Go ahead and run `npm run dev` and open up `localhost:8080` to see the app
-* `npm install --save-dev jest`
-* Create a `test` script in `package.json` to `jest`
-* Run `npm test` -- No files found matching the default `testMatch`
-* Copy over `src/__tests__/utils.js` from `calculator.solution`
-* Run `npm test` -- Fails due to syntax error with ES Modules which we have disabled for webpack
-* Update `.babelrc.js` to have `modules: 'commonjs'` in test mode.
-* Run `npm test` -- It works!
-* Add `console.log(window)`
-* Run `npm test` -- notice the huge window object is printed
-* Create a `jest` object property in `package.json` and add `testEnvironment: 'node'`.
-* Run `npm test` -- notice it fails with `window is not defined` which is what we want for node.
-* Remove `console.log(window)`
+* Přejděte na `./other/configuration/calculator`
+* Spusťte `npm run dev` a otevřete `localhost:8080` pro zobrazení appky
+* Nainstalujte jest pomocí `npm install --save-dev jest`
+* Nastavte `test` skript v `package.json` na `jest`
+* Spusťte `npm test` -- No files found matching the default `testMatch`
+* Zkopírujte `src/__tests__/utils.js` z `calculator.solution`
+* Spusťte `npm test` -- Selže kvůli syntax error s ES Moduly, které jsme pro webpack vypnuli
+* Aktualizujte `.babelrc.js` a nastavte `modules: 'commonjs'` v test módu.
+* Spusťte `npm test` -- funguje!
+* Přidejte `console.log(window)`
+* Spusťte `npm test` -- a všimněte si velikánského výpisu window objektu
+* Vytvořte `jest` property v `package.json` and přidejte `testEnvironment: 'node'`.
+* Spusťte `npm test` -- všimněte si hlášky `window is not defined` což je to co chceme pro Node.js.
+* Odstraňte `console.log(window)`
 
-Now let's deal with CSS imports:
+Nyní si poradíme s CSS importy:
 
-* Copy `src/__tests__/auto-scaling-text.js` from `calculator.solution`
-* Run `npm test` -- Fails because of the import of css
-* Create `jest.config.js` and move config from `package.json` to that file.
-* Add `moduleNameMapper` to match `.css`. Map it to `require.resolve('./test/style-mock')`
-* Create `style-mock.js` in `test` directory. It needs no contents.
-* Run `npm test` -- The old error is gone! CSS importing is working, but now we're getting `document is not defined`.
-* Update `jest.config.js` to `testEnvironment: 'jsdom'`.
-* Run `npm test` -- Passes!
+* Zkopírujte `src/__tests__/auto-scaling-text.js` z `calculator.solution`
+* Spusťte `npm test` -- Selže kvůli importu CSS
+* Vytvořte `jest.config.js` a přesuňte do něj jest konfiguraci z `package.json`.
+* Přidejte `moduleNameMapper` tak aby matchoval `.css`. Namapujte jej na `require.resolve('./test/style-mock')`
+* Vytvořte `style-mock.js` v adresáři `test`. Nepotřebuje mít žádný obsah.
+* Spusťte `npm test` -- původní chyba je pryč! CSS importy fungují, ale nyní to hlásí `document is not defined`.
+* V `jest.config.js` upravte sekci `testEnvironment: 'jsdom'`.
+* Spusťte `npm test` -- funguje!
 
-Let's improve the CSS imports a bit:
+Zkusme nyní CSS importy trochu vylepšit:
 
-* Add `console.log(div.outerHTML)` and notice there is no className because our style mock just returns an empty object for our css modules (I'm actually not sure why the style prop doesn't appear there... I guess React's not using the style attribute to apply those style properties?)
-* `npm install --save-dev identity-obj-proxy`
-* Add `moduleNameMapper` to `jest.config.js` that matches `.module.css` and maps to `identity-obj-proxy` (must come BEFORE the other one).
-* Run `npm test` -- Shows the `class`!
-* Remove the `console.log` because it's annoying.
+* Přidejte `console.log(div.outerHTML)` a všimněte si, že chybí className, protože náš style mock vrací jen prázdný objekt pro naše CSS moduly
+* Nainstalujte `npm install --save-dev identity-obj-proxy`
+* Přidejte `moduleNameMapper` do `jest.config.js` který matchuje `.module.css` a mapuje jej na `identity-obj-proxy` (musí být uvedeno PŘED stávající deklarací).
+* Spusťte `npm test` -- zobrazuje `class`!
+* Odstraňte `console.log`.
 
-Let's handle dynamic imports:
+Nyní vyřešíme dynamické importy:
 
-* Copy `src/__tests__/calculator.js` from `calculator.solution`
-* Run `npm test` -- Fails due to syntax error on dynamic import
-* `npm install --save-dev babel-plugin-dynamic-import-node`
-* Update `.babelrc.js` to use `dynamic-import-node` when in tests
-* Run `npm test` -- Fails because `window.localStorage` is not supported by JSDOM!
-* Copy `test/setup-test-framework.js` from `calculator.solution`
-* Update `jest.config.js` to have a `setupTestFrameworkScriptFile` that points to `require.resolve('./test/setup-test-framework')`
-* Run `npm test` -- Passes!
+* Zkopírujte `src/__tests__/calculator.js` z `calculator.solution`
+* Spusťte `npm test` -- selže kvůli syntax error v dynamickém importu
+* Nainstalujte babel plugin `npm install --save-dev babel-plugin-dynamic-import-node`
+* Zaktualizujte `.babelrc.js` aby používal `dynamic-import-node` v testech
+* Spusťte `npm test` -- selže, protože `window.localStorage` JSDOM nepodporuje!
+* Zkopírujte `test/setup-test-framework.js` z `calculator.solution`
+* Upravte `jest.config.js` aby zahrnoval `setupTestFrameworkScriptFile` které ukazuje na `require.resolve('./test/setup-test-framework')`
+* Spusťte `npm test` -- funguje!
 
-Ok! Now time for coverage!
+Čas na code coverage:
 
-* Update the `test` script in `package.json` to be `jest --coverage`
-* Run `npm test` -- Passes and includes coverage!
-* Open `./coverage/lcov-report/index.html` in a browser. Neat right!? It includes non-source files though
-* Update `jest.config.js` with a `collectCoverageFrom` that is: `['**/src/**/*.js']`
-* Run `npm test` -- Passes and includes coverage for only the files we care about.
+* Zaktualizujte `test` skript v `package.json` aby byl `jest --coverage`
+* Spusťte `npm test` -- funguje a zahrnuje i code coverage!
+* Otevřete `./coverage/lcov-report/index.html` v browseru. Super, ne!? Bohužel ale zahrnuje i další soubory mimo zdrojový kód.
+* Zaktualizujte `jest.config.js` a přidejte property `collectCoverageFrom`, která odpovídá: `['**/src/**/*.js']`
+* Spusťte `npm test` -- funguje a zahrnuje coverage jen v souborech, které nás zajímají.
 
-Let's lock in our coverage!
+Nastavme limit code coverage:
 
-* Update `jest.config.js` to have a `coverageThreshold` of 70% for statements, branches, functions, and lines.
-* Run `npm test` -- Fails due to coverage threshold requirements
-* Update `jest.config.js` to have a more reasonable `coverageThreshold`
-* Run `npm test` -- Passes!
+* Upravte `jest.config.js` aby obsahoval property `coverageThreshold` a nastavte limit 70% pro statements, branches, functions i lines.and lines.
+* Spusťte `npm test` -- selže, protože coverage nesplňuje daný limit
+* Upravte `jest.config.js` aby obsahoval limit `coverageThreshold` se kterým to projde
+* Spusťte `npm test` -- funguje!
 
-Let's turn on watch mode!
+Nyní zapneme watch mód:
 
-* Add a `test:watch` script to `package.json` and set it to `jest --watch`
-* Run `npm run test:watch`
-* Explore Jest's amazing watch mode
+* Přidejte `test:watch` skript do `package.json` a nastavte jej na `jest --watch`
+* Spusťte `npm run test:watch`
+* Vyzkoušejte se Jest watch mód
 
-**Exercise**:
+**Co si odnést**:
 
-> No exercise here. It would be really boring I think...
+* Nainstalovali jsme závislosti pro testování: `jest`, `identity-obj-proxy` a `babel-plugin-dynamic-import-node`
+* Code coverage vygenerujete s `jest --coverage`
+* Watch mód spustíte pomocí `jest --watch`
+* Konfigurace jestu buď v `jest.config.js`, pomocí `--config`, nebo pomocí `jest` property v `package.json`:
+  * `"testEnvironment": "jest-environment-node"` pokud nepotřebujete `jsdom`
+  * `collectCoverageFrom` nastavuje kde se bude sbírat coverage (některé části můžete ignorovat pomocí `coveragePathIgnorePatterns`)
+  * `coverageThresholds` zajistí, aby coverage nespadla příliš nízko
 
-**Takeaways**:
+### Unit testy komponent
 
-* Dependencies installed: `jest`, `identity-obj-proxy`, and `babel-plugin-dynamic-import-node`
-* Get code coverage with: `jest --coverage`
-* Watch mode with: `jest --watch`
-* Configure jest with `jest.config.js`, `--config`, or `package.json` `jest` property:
-  * `"testEnvironment": "jest-environment-node"` if you don't need `jsdom`
-  * `collectCoverageFrom` to collect coverage numbers on your whole codebase (`coveragePathIgnorePatterns` can ignore some)
-  * `coverageThresholds` to keep your coverage from falling
+**Instrukce**:
 
-### Unit testing components
+1.  Otevřete `client/src/screens/editor.todo.js` a `client/src/screens/__tests__/editor.todo.js`
+2.  Spusťte testy pomocí `npm test editor.todo`
+3.  Implementujte test (vyjma snapshotového)
 
-**Instruction**:
+**Cvičení**:
 
-1.  Open `client/src/screens/editor.todo.js` and `client/src/screens/__tests__/editor.todo.js`
-2.  Run the tests with `npm test editor.todo`
-3.  Implement the test (not the snapshot yet)
+1.  Otevřete `client/src/components/login.js` a `client/src/components/__tests__/login.step-1.todo.js`
+2.  Spusťte testy pomocí `npm test login.step-1.todo`
+3.  Implementujte test loginu
 
-**Exercise**:
+_volitelné_
 
-1.  Open `client/src/components/login.js` and `client/src/components/__tests__/login.step-1.todo.js`
-2.  Run the tests with `npm test login.step-1.todo`
-3.  Implement the login test
+1.  Otevřete `client/src/components/__tests__/login.step-2.todo.js`
+2.  Spusťte testy pomocí `npm test login.step-2.todo`
+3.  Využijte poskytnuté utility
 
-_optional_
+### Efektivní snapshot testing
 
-4.  Open `client/src/components/__tests__/login.step-2.todo.js`
-5.  Run the tests with `npm test login.step-2.todo`
-6.  Use the utilities provided
+**Instrukce**:
 
-**Takeaways**:
+1.  Vysvětlete co je to vlastně snapshot testování (otevřete `other/jest-expect/__tests__/expect-assertions.js` a projděte snapshot examply)
+2.  Otevřete `client/src/screens/editor.todo.js` a `client/src/screens/__tests__/editor.todo.js`
+3.  Spusťte testy pomocí `npm test editor.todo`
+4.  Implementujte snapshot test
 
-* TODO
+**Cvičení**:
 
-### Effective Snapshot Testing
+1.  Otevřete `client/src/components/login.js` a `client/src/components/__tests__/login.step-1.todo.js`
+2.  Spusťte testy pomocí `npm test login.step-3.todo`
+3.  Implementujte snapshot test
 
-**Instruction**:
+### Integrační testování celých stránek
 
-1.  Start by explaining what snapshot tests even are (open `other/jest-expect/__tests__/expect-assertions.js` and go through the snapshots examples)
-2.  Open `client/src/screens/editor.todo.js` and `client/src/screens/__tests__/editor.todo.js`
-3.  Run the tests with `npm test editor.todo`
-4.  Implement the snapshot test
+**Instrukce**:
 
-**Exercise**:
+1.  Prozkoumejte trochu kód aplikace. Začněte na `client/src/app.js`
+2.  Otevřete `client/src/__tests__/app.register.todo.js`
+3.  Spusťte test pomocí `npm test app.register.todo`
+4.  Implementujte integrační test
 
-1.  Open `client/src/components/login.js` and `client/src/components/__tests__/login.step-1.todo.js`
-2.  Run the tests with `npm test login.step-3.todo`
-3.  Implement the snapshot test
+**Cvičení**:
 
-**Takeaways**:
+1.  Otevřete `client/src/__tests__/app.login.todo.js`
+2.  Spusťte testy pomocí `npm test app.login.todo`
+3.  Implementujte integrační test
 
-* TODO
+## Workshop #3: End-To-End testování pomocí Cypress
 
-### Integration testing pages
+* Konfigurace Cypressu pro webovou aplikaci
+* Psaní E2E (end-to-end) testů v Cypressu
 
-**Instruction**:
+### Konfigurace Cypressu
 
-1.  Explore the app code a little bit. Start at `client/src/app.js`
-2.  Open `client/src/__tests__/app.register.todo.js`
-3.  Run the tests with `npm test app.register.todo`
-4.  Implement the integration test
+**Instrukce**:
 
-**Exercise**:
+1.  Přepněte se do adresáře `other/configuration/calculator` (další adresáře jsou uváděné relativně)
+2.  Spusťte `npm install --save-dev cypress`
+3.  Spusťte `npx cypress open`. Trochu si s tím pohrajte, pak ukončete.
+4.  Prozkoumejte `./cypress`
 
-1.  Open `client/src/__tests__/app.login.todo.js`
-2.  Run the tests with `npm test app.login.todo`
-3.  Implement the integration test
+Nyní Cypress spustíme nad naší codebase
 
-**Takeaways**:
+1.  Spusťte dev server v jednom tabu pomocí `npm run dev`. Běží na portu `8080`
+2.  Otevřete `./cypress.json` a přidejte `"baseUrl": "http://localhost:8080"` a `"integrationFolder": "cypress/e2e"`
+3.  Spusťte `npm install --save-dev cypress-testing-library`
+4.  Upravte `cypress/support/index.js` aby importoval `cypress-testing-library/add-commands`
+5.  Smažte `./cypress/integration` a zkopírujte `../calculator.solution/e2e/calculator.js` do `./cypress/e2e/calculator.js`
+6.  Znovu spusťte cypress: `npx cypress open` a spusťte test. Funguje!
 
-* TODO
-
-### Configuring Cypress
-
-**Instructions**:
-
-1.  Change directories to `other/configuration/calculator` (further directories relative to this)
-2.  Run `npm install --save-dev cypress`
-3.  Run `npx cypress open`. Play around with it, then stop the process.
-4.  Explore `./cypress`
-
-Now let's have it run on our codebase
-
-1.  In one terminal tab/window start the dev server `npm run dev`. Note this is running on port `8080`
-2.  Open `./cypress.json` and add `"baseUrl": "http://localhost:8080"` and `"integrationFolder": "cypress/e2e"`
-3.  `npm install --save-dev cypress-testing-library`
-4.  Update `cypress/support/index.js` to import `cypress-testing-library/add-commands`
-5.  Delete `./cypress/integration` and copy `../calculator.solution/e2e/calculator.js` to `./cypress/e2e/calculator.js`
-6.  Start cypress over again: `npx cypress open` and run the test. It passes!
-
-Now let's make this a script
+Nyní z toho uděláme skript
 
 1.  `npm install --save-dev npm-run-all`
-2.  Add a `test:e2e:dev` script: `npm-run-all --parallel --race dev cy:open`
-3.  Add a `cy:open` script: `cypress open`
-4.  Run `npm run test:e2e:dev`. It works!
+2.  Přidejte `test:e2e:dev` skript: `npm-run-all --parallel --race dev cy:open`
+3.  Přidejte `cy:open` skript: `cypress open`
+4.  Spusťte `npm run test:e2e:dev`. Funguje!
 
-Now let's make this work for CI
+Nyní zajistíme, aby to fungovalo i na CI
 
-1.  Add a `test:e2e` script: `npm-run-all --parallel --race start cy:run`
-2.  Add a `cy:run` script: `cypress run`
-3.  Add a `pretest:e2e` script: `npm run build`
-4.  Run `npm run test:e2e`. It works!
+1.  Přidejte `test:e2e` skript: `npm-run-all --parallel --race start cy:run`
+2.  Přidejte `cy:run` skript: `cypress run`
+3.  Přidejte `pretest:e2e` skript: `npm run build`
+4.  Spusťte `npm run test:e2e`. Funguje!
 
-**Exercise**:
+### E2E testování
 
-> No exercise here. It would be really boring I think...
+**Novinky**:
 
-**Takeaways**:
+* Nový skript je `npm run test:e2e`
+* Cypress používá pro testy sémantiku podobnou frameworku mocha (`describe` a `it`)
+* Cypress používá knihovnu pro assertions, která je podobná frameworku chai.
+* Cypress má interní frontový systém pro zadávání příkazů. Každý příkaz vrací
+  subjekt, na kterém lze pouštět další příkazy.. Nejlepší je `cy` globální
+  proměnnou vnímat jako `uživatele`, kterému zadáváte instrukce co má dělat
+  dál. Ve většině případů prostě řetězíte jednotlivé pokyny pokud nechcete začít řešit jiný úkol.
+  [Více informací](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Subject-Management)
 
-* TODO
+**Instrukce**:
 
-### End-to-end testing
+1.  Otevřete `cypress/e2e/auth.register.todo.js` a spusťte `npm run test:e2e`
+2.  Spusťte testy `auth.register.todo.js`
+3.  Implementujte test registrace
 
-**New Things**:
+**Cvičení**:
 
-* The new script is `npm run test:e2e`
-* Cypress uses a mocha-like framework for tests (`describe`, and `it`)
-* Cypress uses a chai-like assertion library.
-* Cypress has an internal queueing system for it's commands. Each command can
-  yield a subject which allows you to execute commands on that subject. Think
-  of the `cy` global as `user` and you're giving the user instructions of what
-  to do. You pretty much chain everything from one command to the other unless
-  you want to context switch to a new task.
-  [learn more](https://docs.cypress.io/guides/core-concepts/introduction-to-cypress.html#Subject-Management)
+1.  Otevřete `cypress/e2e/auth.login.todo.js` a spusťte `npm run test:e2e`
+2.  Spusťte testy `auth.login.todo.js`
+3.  Implementujte test přihlašování
 
-**Instruction**:
+**Co si odnést**:
 
-1.  Open `cypress/e2e/auth.register.todo.js` and run `npm run test:e2e`
-2.  Run the tests `auth.register.todo.js`
-3.  Implement the register test
-
-**Exercise**:
-
-1.  Open `cypress/e2e/auth.login.todo.js` and run `npm run test:e2e`
-2.  Run the tests `auth.login.todo.js`
-3.  Implement the login test
-
-**Takeaways**:
-
-* Once you've verified registration works in the UI, you should avoid needless
-  test bottlenecks by using a utility to register a new user rather than
-  registering a new user with the UI.
-* E2E tests allow you to use your app like a user which gives you a LOT more
-  confidence that things will work as expected when a user does use your app.
-* Cypress has an AMAZING UX for writing E2E tests for web apps!
-
-### Write tests. Not too many. Mostly integration.
-
-See below in the shared content
-
----
-
-## Shared Content
-
-### What's a test
-
-Before we get into all the testing frameworks, let's learn about what a test
-even is. In your terminal, change directories to `other/whats-a-test` and open
-the `0.js` file in your editor. Follow the instructions there and continue
-through to `5.js`. You'll find the solutions in the associated `.solution`
-files.
-
-Learn more about this from:
-["But really, what is a JavaScript test?"](https://blog.kentcdodds.com/46fe5f3fad77)
-
-**New Things**:
-
-* Assertion: A way for you to specify how things should be. Will throw an error if they are not that way, this is what fails the test.
-
-**Takeaways**:
-
-* Tests are simply code that runs other code and performs "assertions"
-* Testing frameworks abstract this away for us to be more productive in writing tests.
-
-### What types of testing are there?
-
-Watch this 5 minute lightning talk:
-["What we can learn about testing from the wheel"](https://youtu.be/Da9wfQ0frGA?list=PLV5CVI1eNcJgNqzNwcs4UKrlJdhfDjshf)
-
-### Jest
-
-**Instruction**:
-
-1.  Open `other/jest-expect/__tests__/expect-assertions.js`
-2.  Run `npm run test:expect`
-3.  Walk through the different assertions (should be pretty quick)
-
-**Exercise**:
-
-> I don't think there's time/need for exercises here
-
-**Takeaways**:
-
-* Reference all the assertions here: https://facebook.github.io/jest/docs/en/expect.html
-
-#### Code Coverage
-
-Take a look at `other/coverage-example`. Look at the `example.js` file and
-compare it to the `example.coverage.js` file. The one with coverage has been
-instrumented with coverage meaning there's a variable set up for the file
-and the code has been changed to include tracking of everywhere the code path
-could go. Open up `coverage/lcov-report/index.html` in a browser to see the
-report that this is intended to create.
-
-**New Things**:
-
-* Branch: A branch in the code path. For example: `if`, `else`, `ternary`, `switch`.
-* Statement: A syntax expression intended to be executed: Function call and/or assignment
-* Lines: [Basically irrelevant now](https://github.com/gotwarlost/istanbul/issues/639)
-* Functions: Whether or not a function was ever invoked
-
-**Takeaways**:
-
-* Coverage is a useful metric as it shows you where code has not verifiably been
-  run during tests.
-* This metric is just an indicator and should not be misinterpreted as whether
-  the logic is correct or the code will never break.
-* You can get distracted by trying to achieve 100% code coverage when your time
-  could be better spent elsewhere. Often trying to achieve 100% code coverage
-  can result in doing weird things that make your tests brittle.
-
-### Write tests. Not too many. Mostly integration.
-
-Basically [this talk](https://slides.com/kentcdodds/write-tests).
+* Po tom, co jste ověřili, že registrace funguje, je lepší se vyhnout vytváření
+  bottlenecků použitím utility na registraci uživatele místo toho, abyste registraci
+  vždycky prováděli pomocí průchodu UI.
+* E2E testy vám umožňují testovat aplikaci jako byste byli skutečný uživatel,
+  což vám dává MNOHEM větší jistotu, že vaše aplikace tak bude pro uživatele
+  skutečně fungovat.
+* Cypress má SKVĚLÉ UX pro psaní E2E testů!
 
 ## Odstraňování problémů
 
