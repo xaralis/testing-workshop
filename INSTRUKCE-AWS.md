@@ -66,6 +66,7 @@ spustit následující příkazy, pomocí kterých si spustíte celý projekt:
 ```
 git clone https://github.com/xaralis/testing-workshop.git
 cd testing-workshop
+git checkout aws
 npm run setup --silent
 ```
 
