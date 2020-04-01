@@ -27,7 +27,7 @@ Tady je základní postup pro váš první test:
   (tip: expect().toMatch() by mohlo být to co chcete, např.: `expect('some text content').toMatch('text')`)
 
 Druhý test bude velmi podobný tomu prvnímu.
- */
+*/
 
 test("ItemList without items", () => {
 

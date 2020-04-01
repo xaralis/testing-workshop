@@ -3,13 +3,14 @@ const ReactDOM = require('react-dom')
 const renderer = require('react-test-renderer')
 const {getFlyingSuperHeros} = require('../super-heros')
 /*
-Kompletní seznam assertions k dipozici tady here: https://facebook.github.io/jest/docs/en/expect.html
+Kompletní seznam assertions k dipozici tady: https://facebook.github.io/jest/docs/en/expect.html
 */
 
 test('toBe', () => {
   // podobné jako ===
   expect(1).toBe(1)
   expect(true).toBe(true)
+  // pozn.: všimněte si inverzi podmínky pomocí `.not`
   expect({}).not.toBe({})
 })
 
@@ -25,10 +26,12 @@ test('toEqual', () => {
 })
 
 test('toMatchObject', () => {
-  // podobné `toEqual`, ale pro částečnou shodu
+  // podobné `toEqual`, ale pro částečnou shodu, klíče navíc jsou OK
   const subject = {a: {b: 'c'}, d: 'e'}
   const actual = {a: {b: 'c'}}
   expect(subject).toMatchObject(actual)
+  // chybějící klíče OK nejsou
+  expect(actual).not.toMatchObject(subject)
 
   const subArray = [1, 2, {three: 'four', five: {six: 7}}]
   const actArray = [1, 2, {five: {six: 7}}]
@@ -36,6 +39,7 @@ test('toMatchObject', () => {
 })
 
 test('toHaveBeenCalledTimes', () => {
+  // Snadné vytvoření mock funkce, která nic nedělá
   const mockFn = jest.fn()
   expect(mockFn).toHaveBeenCalledTimes(0)
 
@@ -46,7 +50,7 @@ test('toHaveBeenCalledTimes', () => {
 test('toHaveBeenCalledWith', () => {
   const mockFn = jest.fn()
   mockFn('abc', {oneTwoThree: 123})
-  // POZN: používá toEqual (nikoliv toBe) na každý argument
+  // pozn.: používá toEqual (nikoliv toBe) na každý argument
   expect(mockFn).toHaveBeenCalledWith('abc', {oneTwoThree: 123})
 })
 

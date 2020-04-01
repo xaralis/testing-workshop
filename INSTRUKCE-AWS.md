@@ -151,7 +151,6 @@ pomocí této statistiky dá vytvořit.
 
 * Branch: větev kódu. Příklady: `if`, `else`, `ternary`, `switch`.
 * Statement: syntaktický výraz, který může být spuštěn. Příklad: volání funkce, přiřazení proměnné.
-* Řádky: [Nejsou moc podstatné, všímejte si spíš statementů](https://github.com/gotwarlost/istanbul/issues/639)
 * Funkce: Zda byla funkce zavolána
 
 **Co si odnést**:
@@ -161,7 +160,7 @@ pomocí této statistiky dá vytvořit.
 * Jedná se pouze o indikátor a neměli bychom jej zaměňovat za předpoklad, že vše
   co je pokryto také správně funguje.
 * Snaha udržet 100% pokrytí je mnohdy zbytečná a často kontraproduktivní.
-  Rozumná míra je 70% pro běžné aplikace. Pokud však vyvíjíte knihovnu, kterou
+  Rozumná míra je okolo 70% pro běžné aplikace. Pokud však vyvíjíte knihovnu, kterou
   budou používat další lidé, je na místě snažit se o co nejvyšší pokrytí, klidně
   i 100%.
 

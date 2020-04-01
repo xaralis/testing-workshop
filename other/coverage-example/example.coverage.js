@@ -1,11 +1,11 @@
 var cov_4v2lelsd = function () {
-  var path = '/Users/kdodds/Developer/testing-workshop/other/coverage-example/example.js',
+  var path = '/Users/xaralis/Workspace/testing-workshop/other/coverage-example/example.js',
       hash = 'f082f3bb2c0e4a4c20c4757baa18a7cea8362e4b',
       Function = function () {}.constructor,
       global = new Function('return this')(),
       gcv = '__coverage__',
       coverageData = {
-    path: '/Users/kdodds/Developer/testing-workshop/other/coverage-example/example.js',
+    path: '/Users/xaralis/Workspace/testing-workshop/other/coverage-example/example.js',
     statementMap: {
       '0': {
         start: {
@@ -2495,8 +2495,8 @@ var cov_4v2lelsd = function () {
   return coverage[path] = coverageData;
 }();
 
-// this is a copy/paste of the utils file from downshift
-// to be used as an example for code coverage
+// Tento soubor je pouze copy-pasted varianta utilit z downshiftu, poslouží nám
+// jako ukázka konceptu code coverage.
 let idCounter = (cov_4v2lelsd.s[0]++, 1);
 
 /**

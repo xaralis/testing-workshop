@@ -1,5 +1,5 @@
-// this is a copy/paste of the utils file from downshift
-// to be used as an example for code coverage
+// Tento soubor je pouze copy-pasted varianta utilit z downshiftu, poslouží nám
+// jako ukázka konceptu code coverage.
 let idCounter = 1
 
 /**
