@@ -21,8 +21,8 @@ Vítáme tě v sérii workshopu na téma testování aplikací v Reactu.
     * [Co je to test?](#co-je-to-test)
     * [Code Coverage](#code-coverage)
     * [Intro do frameworku Jest](#intro-do-frameworku-jest)
-  * [Workshop #2: Unit a integrační testy](#workshop-2-unit-a-integrační-testy)
     * [Základní testování React komponent](#základní-testování-react-komponent)
+  * [Workshop #2: Unit a integrační testy](#workshop-2-unit-a-integrační-testy)
     * [Konfigurace Jestu](#konfigurace-jestu)
     * [Unit testy komponent](#unit-testy-komponent)
     * [Efektivní snapshot testing](#efektivní-snapshot-testing)
@@ -121,15 +121,16 @@ získáš seznam všech dostupných skriptů. Hlavní z nich jsou následující
 
 Než začneme s testováním pomocí různých frameworků, je vhodné si vysvětlit
 co to vlastně test je. V terminálu si otevřete adresář `other/whats-a-test`
-a otevřete `1.js` ve vašem editoru. Pokračujte dle instrukcí až k
-`4.js`. Řešení pro jednotlivé úlohy naleznete v příslušných `.solution.js` souborech.
+a otevřete `1.todo.js` ve vašem editoru. Pokračujte dle instrukcí až k
+`4.todo.js`. Řešení pro jednotlivé úlohy naleznete v příslušných `.solution.js` souborech.
 
 Pokud vás zajímá více, můžete si přečíst třeba tento článek:
 ["But really, what is a JavaScript test?"](https://blog.kentcdodds.com/46fe5f3fad77)
 
 **Co jsme se dozvěděli**:
 
-* Assertion: Cesta jak říct jak by něco mělo fungovat. Pokud to není dodrženo, vyhodí chybu což způsobí failnutí testu.
+* Assertion: Cesta jak říct jak by něco mělo fungovat. Pokud to není dodrženo,
+  vyhodí chybu což způsobí failnutí testu.
 
 **Co si odnést**:
 
@@ -176,14 +177,10 @@ v podobě hotových assertions nebo třeba nástrojů pro mockování.
 
 * Jest obsahuje řadu již připravených assertions, celý seznam je zde: https://facebook.github.io/jest/docs/en/expect.html
 
-## Workshop #2: Unit a integrační testy
-
-* Konfigurace Jestu pro client-side projekt v Reactu
-* Psaní unit testů pro Javascriptové utility a React komponenty
-* Co je to snapshot testování a jak jej používat efektivně
-* Psaní integračních testů pro React komponenty
-
 ### Základní testování React komponent
+
+Abychom si ukázali i příklad testování Reactu, kvůli kterému tu jsme především,
+jako poslední cvičení si zkusíme otestovat jednoduchou React komponentu.
 
 **Cvičení**:
 
@@ -197,6 +194,13 @@ v podobě hotových assertions nebo třeba nástrojů pro mockování.
 * Pokud by byla ve vaší celé aplikaci jen tato komponenta, zkuste ji využívat
   stejně jako by to dělal uživatel. To vám dá základní případy toho, co je
   vhodné otestovat.
+
+## Workshop #2: Unit a integrační testy
+
+* Konfigurace Jestu pro client-side projekt v Reactu
+* Psaní unit testů pro Javascriptové utility a React komponenty
+* Co je to snapshot testování a jak jej používat efektivně
+* Psaní integračních testů pro React komponenty
 
 ### Konfigurace Jestu
 

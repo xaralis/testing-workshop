@@ -1,6 +1,5 @@
-// Now we can remove our own little framework
-// and run this file with jest!
-// Run `./jest`
+// Nyní odstraníme náš malý framework a místo toho testy pustíme pomocí frameworku Jest.
+// Spusťte `./jest`
 const {sum, subtract} = require('./math')
 
 test('sum adds numbers', () => {
