@@ -141,7 +141,7 @@ Pokud vás zajímá více, můžete si přečíst třeba tento článek:
 
 ### Code Coverage
 
-Podívejte se na `other/coverage-example`. Otevtřete si soubor `example.js` a
+Podívejte se na `other/coverage-example`. Otevřete si soubor `example.js` a
 porovnejte ho s `example.coverage.js`. Varianta s coverage obsahuje proměnnou, která
 hlídá všechna místa v kódu, kam se lze dostat. Otevřete
 `coverage/lcov-report/index.html` v browseru abyste viděli jaký report se

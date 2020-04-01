@@ -1,3 +1,4 @@
 module.exports = {
-  testMatch: ['**/4.js'],
+  testMatch: ['**/4.todo.js'],
+  testURL: 'http://localhost/'
 }

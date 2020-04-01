@@ -2,7 +2,7 @@
 
 /*
 
-Napište test, který ukazuje chybu.
+Wapište test, který ukazuje chybu.
 Napište kód, který vyhodí chybu s užitečnou hláškou o této chybě, ale pouze
 pokud se chyba vyskytne.
 

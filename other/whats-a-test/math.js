@@ -1,4 +1,4 @@
-// sum is intentionally broken so you can see errors in the tests
+// funkce sum je naschvál špatně
 const sum = (a, b) => a - b
 const subtract = (a, b) => a - b
 
